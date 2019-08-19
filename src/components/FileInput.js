@@ -10,8 +10,8 @@ let FileInput = (props) => {
                         <i className='fas fa-upload'></i>
                     </span>
                     <span className='file-label'>
-                        Choose a file…
-                        </span>
+                        Load CAN log...    
+                    </span>
                 </span>
             </label>
         </div>
