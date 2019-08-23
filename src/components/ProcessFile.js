@@ -1,35 +1,17 @@
-import React, { Component } from 'react'
+import { parse } from './SignalParse'
 
-let ProcessFile = (props) => {
+exports.processFile = (data) => {
 
-    let displayData = props.data.map( (val,i) => {
+    data = data.split('\n')
+    let parsedData = []
 
-        return(
-            <tr key={i}>
-                {
-                    val.split(' ').map( (c, j) => {
-                        return(
-                            <td key={j}>
-                                {c}
-                            </td>
-                        )
-                    })
-                }
-            </tr>
-        )
-    })
+    for (let i = 0; i < data.length; i++) {
+        
+        let p = parse(data[i])
+        if (p){
+            parsedData.push(p)
+        }
+    }
 
-    return (
-        <div className='table-container'>
-            <table className='table is-bordered'>
-                <thead>           
-                </thead>
-                <tbody>
-                    {displayData}
-                </tbody>
-            </table>
-        </div>
-    )
+    return parsedData
 }
-
-export default ProcessFile
